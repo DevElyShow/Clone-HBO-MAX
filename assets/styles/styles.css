@@ -1,0 +1,311 @@
+@import url(global.css);
+
+/* Organizar código */
+.header{
+    position: relative;
+    margin-top: 50px;
+    padding: 100px 0 300px;
+    background: linear-gradient(-45deg, #56125b, #0f0f10, #271e6e);
+    background-size: 400% 400%;
+    animation: gradient 10s ease infinite alternate;
+}
+
+header::after{
+   content: "";
+   width: 100%;
+   height: 250px;
+   background: linear-gradient(0deg,var(--primary-color), transparent);
+   position: absolute;
+   bottom: 0;
+}
+.header__content {
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap:40px;
+    padding:0 40px;
+}
+
+.header__channels{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+}
+
+.header__channel{
+    object-fit: cover;
+}
+ .header__title {
+    text-transform:uppercase;
+    line-height: 45px;
+    text-align: center;
+    font-size: 3rem;
+    font-weight: bold;
+ }
+ .header__title--light {
+    display: block;
+    font-size: 2rem;
+    font-weight: lighter;
+ }
+
+ .header__divider {
+    width: 70%;
+    max-width: 700px;
+    height: 5px;
+    background: var(--divider-bg-color);
+ }
+
+ .offer{
+    text-align: center;
+    font-size: 1.25rem;
+    line-height: 2.3rem;
+ }
+
+ .offer__price {
+    font-family: "Raleway", sans-serif;
+    font-size: 2.5rem;
+    font-weight: 900;
+ }
+ .offer__price--small{
+    font-size: 1rem;
+    font-weight: 300;
+ }
+
+ 
+ .subscribe{
+    text-align: center;
+    display: inline-block;
+ }
+ .subscribe .text--small {
+    max-width: 300px;
+    line-height: 1.25rem;
+ }
+
+ .header__button {
+   animation: wiggle 2.2s 1s linear infinite;
+   transition: transform 1s;
+ }
+
+ .subscription__plans{
+   display: flex;
+   justify-content: space-around;
+   margin: 40px 0px;
+   gap:80px;
+   perspective: 2000px;
+   perspective-origin:top;
+  
+ }
+
+ .subscription__card{
+   min-height: 600px;
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+   background: var(--card-bg-color);
+   padding: 40px 60px;
+   border-radius:10px;
+   transition: transform 1.2s ease-in-out 
+ }
+
+ /* Efeito de rotação dos cards - Não compativel nativamente com o Firefox */
+ .subscription__plans:has(.subscription__card:nth-child(1):hover)
+  .subscription__card:nth-child(2) {
+  transform: rotateY(-45deg);
+}
+
+.subscription__plans:has(.subscription__card:nth-child(2):hover)
+  .subscription__card:nth-child(1) {
+  transform: rotateY(45deg);
+}
+ .title {
+   font-size: 2rem;
+   font-weight: 500;
+ }
+
+.subscription__plan{
+   display: flex;
+   justify-content: space-between;
+   font-size: 1.25rem;
+   font-weight: 900;
+   margin-bottom: 20px;
+}
+.subscription__price {
+  font-size: 2rem;
+  font-family: "Raleway", sans-serif;
+  color: var(--secondary-color);
+  font-weight: 700;
+}
+.subscription__price .text--small {
+   color: var(--text-color);
+ }
+
+.subscription__description{
+   text-align: left;
+   font-size: 1.25rem;
+   padding-left: 14px;
+   margin-bottom: 20px;
+}
+.subscription__description::marker {
+   content: "+";
+   font-size: 2rem;
+   margin: 0 8px 0 0;
+}
+
+/* contents */
+.contents {
+  margin: 100px auto;
+}
+
+.contents__container{
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+
+}
+
+.contents__card {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  border-radius: 16px;
+  border: 2px solid transparent;
+  transition: transform 0.9s, background 1s, border 1s;
+}
+
+.contents__image{
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: opacity 2s;
+}
+
+.contents__card:hover{
+  transform: scale(1.05);
+  border: 2px solid var(--tertiary-color)
+}
+
+.contents__card:hover .contents__image{
+  opacity: 0;
+}
+
+/* Transição das imagens */
+.contents__card:nth-child(1):hover{
+  background-image: url("https://github.com/micheleambrosio/hbomax/blob/master/assets/images/hbo-hover_0.webp?raw=true");
+}
+.contents__card:nth-child(2):hover{
+  background-image: url("https://github.com/micheleambrosio/hbomax/blob/master/assets/images/MAX-Hover.webp?raw=true");
+}
+.contents__card:nth-child(3):hover{
+  background-image: url("https://github.com/micheleambrosio/hbomax/blob/master/assets/images/DC-Hover.webp?raw=true");
+}
+.contents__card:nth-child(4):hover{
+  background-image: url("https://github.com/micheleambrosio/hbomax/blob/master/assets/images/WB-Hover.webp?raw=true");
+}
+.contents__card:nth-child(5):hover{
+  background-image: url("https://github.com/micheleambrosio/hbomax/blob/master/assets/images/CN-Hover.png?raw=true");
+}
+.contents__card:nth-child(6):hover{
+  background-image: url("https://github.com/micheleambrosio/hbomax/blob/master/assets/images/UCL-Hover.webp?raw=true");
+}
+
+/* Animações */
+@keyframes wiggle {
+  0%,
+  10% {
+    transform: rotate(0deg);
+  }
+  15% {
+    transform: rotate(-15deg);
+  }
+  20% {
+    transform: rotate(10deg);
+  }
+  25% {
+    transform: rotate(-10deg);
+  }
+  30% {
+    transform: rotate(10deg);
+  }
+  35% {
+    transform: rotate(-10deg);
+  }
+  40%,
+  100% {
+    transform: rotate(0deg);
+  }
+}
+@keyframes gradient{
+ 0% {
+    background-position: 0% 50%;
+ }
+ 50%{
+    background-position: 100% 50%;
+ }
+ 100%{
+    background-position: 0% 50%;
+ }
+}
+
+/* Media Queries */
+@media screen and (max-width: 1200px) {
+  .subscription__plans {
+    gap: 40px;
+  }
+
+  .contents__container {
+    gap: 32px;
+  }
+}
+@media  screen and (max-width:1140px) {
+  .subscription__plans{
+    flex-direction: column;
+    align-items: center;
+  }
+  .subscription__card{
+    max-width: 600px;
+  }
+ }
+@media screen and (max-width:800px){
+  .contents__container{
+    grid-template-columns: repeat(2,1fr);
+    
+  }
+}
+@media screen and (max-width:480px){
+  .header{
+      margin-top: 126px !important;
+  }
+  .subscription__card{
+    padding: 40px;
+  }
+  .subscription__plan{
+    flex-direction: column;
+    justify-content: center;
+  }
+  .subscription__description{
+    font-size: 1rem;
+  }
+  .contents__container{
+    grid-template-columns: repeat(6,100%);
+    grid-auto-flow: column;
+    overflow: auto hidden;
+  }
+}
+
+@media (pointer: coarse) {
+  .contents__card:hover {
+    transform: none;
+  }
+  .subscription__plans:has(.subscription__card:nth-child(1):hover)
+    .subscription__card:nth-child(2),
+  .subscription__plans:has(.subscription__card:nth-child(2):hover)
+    .subscription__card:nth-child(1) {
+    transform: none;
+  }
+}
+
+
